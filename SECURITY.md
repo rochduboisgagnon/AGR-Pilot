@@ -1,11 +1,11 @@
-# Securite : AGR Labs Remote Center
+# Security: AGR Labs Remote Center
 
-## Modele
+## Model
 
-Remote Center pilote Claude Code sur la machine hote. La frontiere de confiance est le reseau **Tailscale** : le serveur n'est jamais expose a l'Internet public. Un **jeton d'acces est obligatoire** par defaut ; l'adresse a scanner le contient.
+Remote Center drives Claude Code on the host machine. The trust boundary is the **Tailscale** network: the server is never exposed to the public internet. An **access token is required** by default; the address you scan contains it.
 
-Les installeurs publies ici sont des binaires verifies par **empreinte SHA-256** (publiee dans `version.json`) avant execution. Aucune source n'est distribuee dans ce depot.
+The installers published here are binaries verified by **SHA-256 fingerprint** (published in `version.json`) before they run. No source code is distributed in this repository.
 
-## Signalement
+## Reporting
 
-Vulnerabilite ou comportement suspect : ecrire a **support@agrlabs.ca**. Pas de programme de bug bounty.
+Vulnerability or suspicious behavior: email **support@agrlabs.ca**. No bug bounty program.

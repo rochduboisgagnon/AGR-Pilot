@@ -1,41 +1,41 @@
 # AGR Labs Remote Center
 
-Pilote le Claude Code de ta machine depuis ton telephone. L'intelligence (Claude Code, MCP, skills, acces aux fichiers) tourne sur ton ordinateur toujours allume ; ton telephone n'est qu'un ecran. Rien ne sort de ton reseau prive.
+Control your machine's Claude Code from your phone. The intelligence (Claude Code, MCP servers, skills, file access) runs on your always-on computer; your phone is just a screen. Nothing leaves your private network.
 
-> Ce depot est le **canal de distribution** : il contient uniquement les installeurs (Releases) et cette presentation. Aucun code source. Le developpement se fait dans un depot prive.
+> This repository is the **distribution channel**: it only contains the installers (Releases) and this page. No source code. Development happens in a private repository.
 
-## Telecharger
+## Download
 
-Derniere version : voir l'onglet **[Releases](../../releases/latest)**.
+Latest version: see the **[Releases](../../releases/latest)** tab.
 
-| Plateforme | Fichier | Comment |
+| Platform | File | How |
 |---|---|---|
-| Windows | `Remote-Center.exe` | Telecharge, double-clic. Tout est dedans, ca s'installe et se met a jour seul. |
-| macOS | `Remote-Center.dmg` | Telecharge, ouvre le .dmg, glisse l'app dans Applications. |
+| Windows | `Remote-Center.exe` | Download, double-click. Everything is inside; it installs and updates itself. |
+| macOS | `Remote-Center.dmg` | Download, open the .dmg, drag the app into Applications. |
 
-Un seul fichier par plateforme : le serveur est embarque dans l'app. Pas besoin d'installer Git ni Node.
+One file per platform: the server is embedded in the app. No need to install Git or Node.
 
-## Prerequis
+## Requirements
 
-1. **Tailscale** installe et connecte au meme compte sur l'ordinateur hote et sur le telephone (https://tailscale.com/download). MagicDNS et HTTPS Certificates actives une fois dans l'admin Tailscale.
-2. **Claude Code** installe et connecte sur l'hote (abonnement Claude requis ; connexion OAuth, jamais de cle API).
+1. **Tailscale** installed and connected to the same account on the host computer and on the phone (https://tailscale.com/download). MagicDNS and HTTPS Certificates enabled once in the Tailscale admin console.
+2. **Claude Code** installed and connected on the host (a Claude subscription is required; OAuth sign-in, never an API key).
 
-## Comment ca marche
+## How it works
 
-- L'app hote demarre un serveur local qui pilote Claude Code et l'expose a ton telephone via Tailscale, en HTTPS, **uniquement a l'interieur de ton reseau prive**.
-- Sur le telephone : installe l'app, scanne le QR affiche par l'hote (il contient l'adresse et un jeton d'acces).
-- Les mises a jour sont automatiques : l'app telecharge le nouvel installeur, **verifie son empreinte SHA-256**, puis se remplace.
+- The host app starts a local server that drives Claude Code and exposes it to your phone over Tailscale, via HTTPS, **only inside your private network**.
+- On the phone: install the app, scan the QR code shown by the host (it contains the address and an access token).
+- Updates are automatic: the app downloads the new installer, **verifies its SHA-256 fingerprint**, then replaces itself.
 
-## Securite
+## Security
 
-- Frontiere de confiance : le reseau **Tailscale**. Le serveur n'est jamais expose a l'Internet public.
-- **Jeton d'acces obligatoire** par defaut : l'adresse a scanner contient le jeton ; sans lui, l'API refuse tout.
-- Les binaires publies ici sont verifies par empreinte SHA-256 avant d'etre executes (publies dans `version.json`).
+- Trust boundary: the **Tailscale** network. The server is never exposed to the public internet.
+- **Access token required** by default: the address to scan contains the token; without it, the API refuses everything.
+- The binaries published here are verified by SHA-256 fingerprint before being run (published in `version.json`).
 
 ## Support
 
-Question, probleme ou signalement de securite : **support@agrlabs.ca**.
+Questions, issues, or security reports: **support@agrlabs.ca**.
 
-## Licence
+## License
 
-MIT. Voir [LICENSE](LICENSE).
+MIT. See [LICENSE](LICENSE).
