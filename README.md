@@ -1,8 +1,8 @@
-# AGR Labs Remote Center
+# AGR Pilot
 
 Control your machine's Claude Code from your phone. The intelligence (Claude Code, MCP servers, skills, file access) runs on your always-on computer; your phone is just a screen. Nothing leaves your private network.
 
-> This repository is the **distribution channel**: it only contains the installers (Releases) and this page. No source code. Development happens in a private repository.
+> This repository is the **distribution channel**: it only contains the installer (Releases) and this page. No source code. Development happens in a private repository.
 
 ## Download
 
@@ -10,10 +10,9 @@ Latest version: see the **[Releases](../../releases/latest)** tab.
 
 | Platform | File | How |
 |---|---|---|
-| Windows | `Remote-Center.exe` | Download, double-click. Everything is inside; it installs and updates itself. |
-| macOS | `Remote-Center.dmg` | Download, open the .dmg, drag the app into Applications. |
+| Windows | `AGR-Pilot-Manager.exe` | Download, double-click. Everything is inside; it installs and updates itself. |
 
-One file per platform: the server is embedded in the app. No need to install Git or Node.
+One file: the server is embedded in the app. No need to install Git or Node.
 
 ## Requirements
 
@@ -23,14 +22,14 @@ One file per platform: the server is embedded in the app. No need to install Git
 ## How it works
 
 - The host app starts a local server that drives Claude Code and exposes it to your phone over Tailscale, via HTTPS, **only inside your private network**.
-- On the phone: install the app, scan the QR code shown by the host (it contains the address and an access token).
-- Updates are automatic: the app downloads the new installer, **verifies its SHA-256 fingerprint**, then replaces itself.
+- On the phone: open the address (or scan the QR code shown by the host, which contains the address and an access token) and add it to your home screen.
+- Updates are automatic: the app downloads the new installer, **verifies its SHA-256 fingerprint and an ECDSA P-256 signature**, then replaces itself.
 
 ## Security
 
 - Trust boundary: the **Tailscale** network. The server is never exposed to the public internet.
 - **Access token required** by default: the address to scan contains the token; without it, the API refuses everything.
-- The binaries published here are verified by SHA-256 fingerprint before being run (published in `version.json`).
+- The binary published here is verified by SHA-256 fingerprint and a signed `version.json` before being run.
 
 ## Support
 
